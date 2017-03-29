@@ -1,0 +1,6 @@
+c:\users\crash\onedrive\documents\visual studio 2017\Projects\MathFacts\MathFacts\bin\Debug\MathFacts.exe.config
+c:\users\crash\onedrive\documents\visual studio 2017\Projects\MathFacts\MathFacts\bin\Debug\MathFacts.exe
+c:\users\crash\onedrive\documents\visual studio 2017\Projects\MathFacts\MathFacts\bin\Debug\MathFacts.pdb
+c:\users\crash\onedrive\documents\visual studio 2017\Projects\MathFacts\MathFacts\obj\Debug\MathFacts.csprojResolveAssemblyReference.cache
+c:\users\crash\onedrive\documents\visual studio 2017\Projects\MathFacts\MathFacts\obj\Debug\MathFacts.exe
+c:\users\crash\onedrive\documents\visual studio 2017\Projects\MathFacts\MathFacts\obj\Debug\MathFacts.pdb
