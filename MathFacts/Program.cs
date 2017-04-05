@@ -14,11 +14,13 @@ namespace MathFacts
             int choice = 0;
             Addition addTable = new Addition();
             Multiplication timeTables = new Multiplication();
+            Division divideTable = new Division();
+            Subtraction subtractTable = new Subtraction();
             do
             {
                 MainAppTitle();
                 choice = MainMenu();
-                if(choice == 1)
+                if (choice == 1)
                 {
                     bool continueChoice = true;
                     int startNum = 0;
@@ -37,11 +39,11 @@ namespace MathFacts
                         {
                             Console.WriteLine("Please enter a valid number");
                             Console.ReadLine();
-                           
+
                         }
                         finally
                         {
-                            if(startNum > 0 && endNum <= 10)
+                            if (startNum > 0 && endNum <= 10)
                             {
                                 addTable.AdditionTable();
                                 Console.WriteLine("");
@@ -74,11 +76,11 @@ namespace MathFacts
                             }
                         }
                     } while (continueChoice == true);
-                   
+
                 }
 
                 Console.ReadLine();
-            if (choice == 2)
+                if (choice == 2)
                 {
                     bool continueChoice = true;
                     int startNum = 0;
@@ -98,7 +100,7 @@ namespace MathFacts
                         {
                             Console.WriteLine("Please enter a valid number");
                             Console.ReadLine();
-                            
+
                         }
                         finally
                         {
@@ -118,14 +120,14 @@ namespace MathFacts
                                     Console.WriteLine("Would you like to continue with more multiplication facts [y/n]");
                                     Console.ForegroundColor = ConsoleColor.White;
                                     string moreFacts = Console.ReadLine();
-                                    if(moreFacts == "y")
+                                    if (moreFacts == "y")
                                     {
                                         continueChoice = true;
                                     }
                                     else if (moreFacts == "n")
                                     {
                                         continueChoice = false;
-                                        
+
                                     }
                                 }
                                 catch (Exception)
@@ -138,48 +140,164 @@ namespace MathFacts
                         }
                     } while (continueChoice == true);
                 }
+                if (choice == 3)
+                {
+                    bool continueChoice = true;
+                    int startNum = 0;
+                    int endNum = 0;
+                    do
+                    {
+                        divideTable.DivideTable();
+                        try
+                        {
+                            Console.WriteLine("Enter your starting number");
+                            startNum = Int32.Parse(Console.ReadLine());
+                            Console.WriteLine("Enter your ending number");
+                            endNum = Int32.Parse(Console.ReadLine());
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Please enter a valid number");
+                            Console.ReadLine();
+
+                        }
+                        finally
+                        {
+                            if (startNum > 0 && endNum <= 10)
+                            {
+                                divideTable.DivideTable();
+                                Console.WriteLine("");
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                Console.WriteLine("Your addition table for {0} - {1}", startNum, endNum);
+                                Console.WriteLine("");
+                                divideTable.DivideChart(startNum, endNum);
+
+                                Console.WriteLine("");
+                                try
+                                {
+                                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                                    Console.WriteLine("Would you like more division facts [y/n]");
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    string moreFacts = Console.ReadLine();
+                                    if (moreFacts == "y")
+                                    {
+                                        continueChoice = true;
+                                    }
+                                    else if (moreFacts == "n")
+                                    {
+                                        continueChoice = false;
+                                    }
+                                }
+                                catch (Exception)
+                                {
+
+                                    throw;
+                                }
+                            }
+                        }
+                    } while (continueChoice == true);
+                }
+                if (choice == 4)
+                {
+                    bool continueChoice = true;
+                    int startNum = 0;
+                    int endNum = 0;
+                    do
+                    {
+                        subtractTable.SubtractTable();
+                        try
+                        {
+                            Console.WriteLine("Enter your starting number");
+                            startNum = Int32.Parse(Console.ReadLine());
+                            Console.WriteLine("Enter your ending number");
+                            endNum = Int32.Parse(Console.ReadLine());
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Please enter a valid number");
+                            Console.ReadLine();
+
+                        }
+                        finally
+                        {
+                            if (startNum > 0 && endNum <= 10)
+                            {
+                                subtractTable.SubtractTable();
+                                Console.WriteLine("");
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                Console.WriteLine("Your addition table for {0} - {1}", startNum, endNum);
+                                Console.WriteLine("");
+                                divideTable.DivideChart(startNum, endNum);
+
+                                Console.WriteLine("");
+                                try
+                                {
+                                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                                    Console.WriteLine("Would you like more subtraction facts [y/n]");
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    string moreFacts = Console.ReadLine();
+                                    if (moreFacts == "y")
+                                    {
+                                        continueChoice = true;
+                                    }
+                                    else if (moreFacts == "n")
+                                    {
+                                        continueChoice = false;
+                                    }
+                                }
+                                catch (Exception)
+                                {
+
+                                    throw;
+                                }
+                            }
+                        }
+                    } while (continueChoice == true);
+                }
 
 
-
-
-            } while (choice != 3);
-            
-
-            
+            }
+            while (choice != 5);
 
         }
 
+                  private static int MainMenu()
+                  {
+                      int choice;
+                      Console.WriteLine();
+                      Console.ForegroundColor = ConsoleColor.Yellow;
+                      Console.WriteLine("Select and option");
+                      Console.WriteLine("----------------");
+                      Console.ForegroundColor = ConsoleColor.White;
+                      Console.WriteLine("Option 1: Addition Facts");
+                      Console.WriteLine("Option 2: Multiplication Facts");
+                      Console.WriteLine("Option 3: Division Facts");
+                      Console.WriteLine("Option 4: Subtraction Facts");
+                      Console.WriteLine("Option 5: Leave Math Facts");
+                      //TODO - Fix exception handling
+                      choice = Int32.Parse(Console.ReadLine());
+                      return choice;
+                  }
 
-        private static int MainMenu()
-        {
-            int choice;
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Select and option");
-            Console.WriteLine("----------------");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Option 1: Addition Facts");
-            Console.WriteLine("Option 2: Multiplication Facts");
-            Console.WriteLine("Option 3: Leave Math Facts");
-            //TODO - Fix exception handling
-            choice = Int32.Parse(Console.ReadLine());
-            return choice;
+                  private static void MainAppTitle()
+                  {
+                      Console.Clear();
+                      string appTitle = @"___  ___      _   _      ______         _          ___              
+  |  \/  |     | | | |     |  ___|       | |        / _ \             
+  | .  . | __ _| |_| |__   | |_ __ _  ___| |_ ___  / /_\ \_ __  _ __  
+  | |\/| |/ _` | __| '_ \  |  _/ _` |/ __| __/ __| |  _  | '_ \| '_ \ 
+  | |  | | (_| | |_| | | | | || (_| | (__| |_\__ \ | | | | |_) | |_) |
+  \_|  |_/\__,_|\__|_| |_| \_| \__,_|\___|\__|___/ \_| |_/ .__/| .__/ 
+                                                         | |   | |    
+                                                         |_|   |_|    ";
+                      Console.ForegroundColor = ConsoleColor.DarkBlue;
+                      Console.WriteLine(appTitle);
+                      Console.ForegroundColor = ConsoleColor.White;
+                  }
+            }   
         }
+    
 
-        private static void MainAppTitle()
-        {
-            Console.Clear();
-            string appTitle = @"___  ___      _   _      ______         _          ___              
-|  \/  |     | | | |     |  ___|       | |        / _ \             
-| .  . | __ _| |_| |__   | |_ __ _  ___| |_ ___  / /_\ \_ __  _ __  
-| |\/| |/ _` | __| '_ \  |  _/ _` |/ __| __/ __| |  _  | '_ \| '_ \ 
-| |  | | (_| | |_| | | | | || (_| | (__| |_\__ \ | | | | |_) | |_) |
-\_|  |_/\__,_|\__|_| |_| \_| \__,_|\___|\__|___/ \_| |_/ .__/| .__/ 
-                                                       | |   | |    
-                                                       |_|   |_|    ";
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine(appTitle);
-            Console.ForegroundColor = ConsoleColor.White;
-        }
-    }
-}
+
+
+
